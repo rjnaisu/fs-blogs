@@ -51,20 +51,6 @@ jobs:
       - name: Install Playwright browser
         run: pnpm --filter bloglist-frontend exec playwright install --with-deps chromium
 
-      - name: Start backend for e2e
-        run: NODE_ENV=test PORT=3001 pnpm --filter blogs exec node index.js &
-
-      - name: Start frontend for e2e
-        run: pnpm --filter bloglist-frontend dev -- --host 127.0.0.1 &
-
-      - name: Wait for frontend
-        run: |
-          for i in {1..30}; do
-            curl -fsS http://localhost:5173 && exit 0
-            sleep 2
-          done
-          exit 1
-
       - name: E2E tests
         run: pnpm test:e2e
 
