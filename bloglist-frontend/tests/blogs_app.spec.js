@@ -27,16 +27,16 @@ test.describe('Blog app', () => {
     await resetApp(request)
     await createUserApi(request, alice)
 
-    await page.goto('http://localhost:5173')
+    await page.goto('/')
   })
 
   test('Login successuful', async ({ page }) => {
-    await page.goto('http://localhost:5173/login')
+    await page.goto('/login')
     await loginWith(page, alice.username, alice.password)
     await expect(page.getByRole('button', { name: 'logout' })).toBeVisible()
   })
   test('Login failure', async ({ page }) => {
-    await page.goto('http://localhost:5173/login')
+    await page.goto('/login')
     await loginWith(page, 'foo', 'bar')
     await expect(page.getByRole('button', { name: 'logout' })).not.toBeVisible()
     await expect(page.getByText('Welcome foo bar')).not.toBeVisible()
@@ -44,7 +44,7 @@ test.describe('Blog app', () => {
   })
   test.describe('Logged in user can:', () => {
     test.beforeEach(async ({ page }) => {
-      await page.goto('http://localhost:5173/login')
+      await page.goto('/login')
       await loginWith(page, alice.username, alice.password)
       await expect(page.getByRole('button', { name: 'logout' })).toBeVisible()
     })

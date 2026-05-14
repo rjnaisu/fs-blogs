@@ -1,6 +1,6 @@
 const Blog = require('../models/blog')
 const User = require('../models/user')
-const apiBaseUrl = 'http://localhost:5173/api'
+const apiBaseUrl = 'http://127.0.0.1:5173/api'
 
 const initialBlogs = [
   {
