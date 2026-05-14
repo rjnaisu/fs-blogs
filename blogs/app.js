@@ -6,7 +6,6 @@ const middleware = require('./utils/middleware')
 const blogRouter = require('./controllers/blogs')
 const userRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
-const testingRouter = require('./controllers/testing')
 
 const app = express()
 app.use(express.json())

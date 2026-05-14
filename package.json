@@ -1,0 +1,19 @@
+{
+  "name": "fs-blogs",
+  "private": true,
+  "packageManager": "pnpm@10.24.0",
+  "scripts": {
+    "dev": "concurrently -n backend,frontend \"pnpm --filter blogs dev\" \"pnpm --filter bloglist-frontend dev\"",
+    "dev:backend": "pnpm --filter blogs dev",
+    "dev:frontend": "pnpm --filter bloglist-frontend dev",
+    "build": "pnpm --filter bloglist-frontend build && rm -rf blogs/dist && cp -R bloglist-frontend/dist blogs/dist",
+    "start": "pnpm --filter blogs start",
+    "lint": "pnpm --filter blogs lint && pnpm --filter bloglist-frontend lint",
+    "test": "pnpm --filter blogs test && pnpm --filter bloglist-frontend vitest",
+    "test:e2e": "pnpm --filter bloglist-frontend test"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.10",
+    "concurrently": "^9.0.0"
+  }
+}
