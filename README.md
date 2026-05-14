@@ -2,6 +2,8 @@
 
 Full stack blog list app with a React + Vite frontend and an Express + MongoDB backend.
 
+Deployed app: https://fs-blogs-cinder-forest-1489.fly.dev/
+
 ## Structure
 
 ```text
